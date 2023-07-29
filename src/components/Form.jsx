@@ -1,5 +1,6 @@
 import './Form.css';
 import FormBox from './FormBox';
+import EducationBox from './EducationBox';
 
 export default function Form() {
   return (
@@ -38,6 +39,10 @@ export default function Form() {
           placeholderText="https://www.linkedin.com/in/johnDoe"
           isRequired={false}
         />
+      </section>
+      <section className="education">
+        <h2>Education</h2>
+        <EducationBox idPrefix="1" />
       </section>
       <nav>
         <button type="submit">Compile</button>
