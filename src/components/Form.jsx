@@ -1,39 +1,43 @@
 import './Form.css';
+import FormBox from './FormBox';
 
 export default function Form() {
   return (
     <form className="form-wrapper">
       <section className="personal-details">
         <h2>Personal Details</h2>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input type="text" placeholder="John Doe" id="name" required={true} />
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            placeholder="john.doe@hotmail.com"
-            id="email"
-            required={true}
-          />
-        </div>
-        <div>
-          <label htmlFor="github">GitHub</label>
-          <input
-            type="url"
-            placeholder="https://github.com/johnDoe"
-            id="github"
-          />
-        </div>
-        <div>
-          <label htmlFor="linkedIn">LinkedIn</label>
-          <input
-            type="url"
-            placeholder="https://www.linkedin.com/in/johnDoe"
-            id="linkedin"
-          />
-        </div>
+        <FormBox
+          ionIconName="person-circle"
+          inputType="text"
+          inputID="name"
+          labelText="Name"
+          placeholderText="John Doe"
+          isRequired={true}
+        />
+        <FormBox
+          ionIconName="mail"
+          inputType="email"
+          inputID="email"
+          labelText="Email"
+          placeholderText="john.doe@hotmail.com"
+          isRequired={true}
+        />
+        <FormBox
+          ionIconName="logo-github"
+          inputType="url"
+          inputID="github"
+          labelText="GitHub"
+          placeholderText="https://github.com/johnDoe"
+          isRequired={false}
+        />
+        <FormBox
+          ionIconName="logo-linkedin"
+          inputType="url"
+          inputID="linkedIn"
+          labelText="LinkedIn"
+          placeholderText="https://www.linkedin.com/in/johnDoe"
+          isRequired={false}
+        />
       </section>
       <nav>
         <button type="submit">Compile</button>

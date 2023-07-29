@@ -32,7 +32,6 @@ h2 {
 .personal-details > div {
   display: flex;
   align-items: center;
-  gap: 1rem;
 }
 
 .personal-details > div > :last-child {
@@ -41,6 +40,10 @@ h2 {
 }
 
 .personal-details > div > * {
+  height: 100%;
+}
+
+.personal-details > div > input {
   height: 80%;
 }
 
@@ -58,9 +61,18 @@ input:focus {
   border: solid #535bf2 1px;
 }
 
+ion-icon:has(~ input:focus),
 label:has(+ input:focus) {
   color: #535bf2;
   font-weight: 700;
+}
+
+ion-icon {
+  margin-right: 0.5rem;
+}
+
+label {
+  margin-right: 1rem;
 }
 
 .form-wrapper > nav {
