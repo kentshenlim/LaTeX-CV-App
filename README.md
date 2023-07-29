@@ -4,6 +4,8 @@
 
 - Created using Vite
 
+## How It Works
+
 ## Credits
 
 - No credit
