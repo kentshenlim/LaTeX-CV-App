@@ -38,6 +38,7 @@ export default function EducationBox({ idPrefix }) {
         isRequired={false}
       />
       <div className="description-header">
+        <ion-icon name="list"></ion-icon>
         <h4>Description</h4>
         <ion-icon name="add-circle"></ion-icon>
       </div>
