@@ -1,4 +1,6 @@
 import Split from 'react-split';
+import Form from './components/Form';
+import Viewer from './components/Viewer';
 import './App.css';
 
 function App() {
@@ -15,8 +17,8 @@ function App() {
         direction="horizontal"
         cursor="col-resize"
       >
-        <div>Hello</div>
-        <div>Fuck</div>
+        <Form></Form>
+        <Viewer></Viewer>
       </Split>
     </main>
   );
