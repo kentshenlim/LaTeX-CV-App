@@ -1,8 +1,9 @@
 import './Form.css';
+import PropTypes from 'prop-types';
 import FormBox from './FormBox';
 import EducationBox from './EducationBox';
 
-export default function Form() {
+export default function Form({ personalDetails, handleChangePersonalDetails }) {
   return (
     <form className="form-wrapper">
       <section className="personal-details">
@@ -14,6 +15,8 @@ export default function Form() {
           labelText="Name"
           placeholderText="John Doe"
           isRequired={true}
+          value={personalDetails.name}
+          handleChange={handleChangePersonalDetails}
         />
         <FormBox
           ionIconName="mail"
@@ -22,14 +25,18 @@ export default function Form() {
           labelText="Email"
           placeholderText="john.doe@hotmail.com"
           isRequired={true}
+          value={personalDetails.email}
+          handleChange={handleChangePersonalDetails}
         />
         <FormBox
           ionIconName="logo-github"
           inputType="url"
-          inputID="github"
+          inputID="gitHub"
           labelText="GitHub"
           placeholderText="https://github.com/johnDoe"
           isRequired={false}
+          value={personalDetails.gitHub}
+          handleChange={handleChangePersonalDetails}
         />
         <FormBox
           ionIconName="logo-linkedin"
@@ -38,12 +45,14 @@ export default function Form() {
           labelText="LinkedIn"
           placeholderText="https://www.linkedin.com/in/johnDoe"
           isRequired={false}
+          value={personalDetails.linkedIn}
+          handleChange={handleChangePersonalDetails}
         />
       </section>
-      <section className="education">
+      {/* <section className="education">
         <h2>Education</h2>
         <EducationBox idPrefix="1" />
-      </section>
+      </section> */}
       <nav>
         <button type="submit">Compile</button>
         <button type="submit">Download</button>
@@ -51,3 +60,8 @@ export default function Form() {
     </form>
   );
 }
+
+Form.propTypes = {
+  personalDetails: PropTypes.object.isRequired,
+  handleChangePersonalDetails: PropTypes.func.isRequired,
+};

@@ -8,6 +8,8 @@ export default function FormBox({
   labelText,
   placeholderText,
   isRequired,
+  value = '',
+  handleChange,
 }) {
   return (
     <div className="form-box-wrapper">
@@ -17,7 +19,10 @@ export default function FormBox({
         type={inputType}
         placeholder={placeholderText + (isRequired ? '*' : '')}
         id={inputID}
+        name={inputID}
         required={isRequired}
+        value={value}
+        onChange={handleChange}
       />
     </div>
   );
@@ -30,4 +35,6 @@ FormBox.propTypes = {
   labelText: PropTypes.string.isRequired,
   placeholderText: PropTypes.string.isRequired,
   isRequired: PropTypes.bool.isRequired,
+  value: PropTypes.any,
+  handleChange: PropTypes.func.isRequired,
 };

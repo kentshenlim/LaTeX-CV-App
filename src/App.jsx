@@ -1,9 +1,23 @@
 import Split from 'react-split';
 import Form from './components/Form';
 import Viewer from './components/Viewer';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [personalDetails, setPersonalDetails] = useState({
+    name: '',
+    email: '',
+    gitHub: '',
+    linkedIn: '',
+  });
+  function handleChangePersonalDetails(e) {
+    setPersonalDetails(() => {
+      const field = e.target.name;
+      const newState = { ...personalDetails, [field]: e.target.value };
+      return newState;
+    });
+  }
   return (
     <main className="app-wrapper">
       <Split
@@ -17,7 +31,10 @@ function App() {
         direction="horizontal"
         cursor="col-resize"
       >
-        <Form></Form>
+        <Form
+          personalDetails={personalDetails}
+          handleChangePersonalDetails={handleChangePersonalDetails}
+        ></Form>
         <Viewer></Viewer>
       </Split>
     </main>
