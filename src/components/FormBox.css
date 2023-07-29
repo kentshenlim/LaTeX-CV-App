@@ -1,0 +1,26 @@
+.form-box-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.form-box-wrapper > :last-child {
+  margin-left: auto;
+  width: 70%;
+}
+
+.form-box-wrapper > * {
+  height: 100%;
+}
+
+.form-box-wrapper > input {
+  height: 80%;
+}
+
+.form-box-wrapper > label {
+  display: flex;
+  align-items: center;
+}
+
+.form-box-wrapper > ion-icon {
+  margin-right: 0.5rem;
+}

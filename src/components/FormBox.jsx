@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './FormBox.css';
 
 export default function FormBox({
   ionIconName,
@@ -9,7 +10,7 @@ export default function FormBox({
   isRequired,
 }) {
   return (
-    <div>
+    <div className="form-box-wrapper">
       <ion-icon name={ionIconName}></ion-icon>
       <label htmlFor={inputID}>{labelText}</label>
       <input
