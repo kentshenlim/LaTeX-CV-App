@@ -7,7 +7,7 @@ function App() {
   return (
     <main className="app-wrapper">
       <Split
-        sizes={[25, 75]}
+        sizes={[60, 40]}
         minSize={100}
         expandToMin={false}
         gutterSize={8}
