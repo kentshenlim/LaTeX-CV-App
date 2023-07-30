@@ -3,7 +3,18 @@ import PropTypes from 'prop-types';
 import FormBox from './FormBox';
 import EducationBox from './EducationBox';
 
-export default function Form({ personalDetails, handleChangePersonalDetails }) {
+export default function Form({
+  personalDetails,
+  setPersonalDetails,
+  educationDetails,
+  setEducationDetails,
+}) {
+  function handleChangePersonalDetails(e) {
+    const field = e.target.name;
+    const newState = { ...personalDetails, [field]: e.target.value };
+    setPersonalDetails(newState);
+  }
+
   return (
     <form className="form-wrapper">
       <section className="personal-details">
@@ -63,5 +74,5 @@ export default function Form({ personalDetails, handleChangePersonalDetails }) {
 
 Form.propTypes = {
   personalDetails: PropTypes.object.isRequired,
-  handleChangePersonalDetails: PropTypes.func.isRequired,
+  setPersonalDetails: PropTypes.func.isRequired,
 };

@@ -11,13 +11,18 @@ function App() {
     gitHub: '',
     linkedIn: '',
   });
-  function handleChangePersonalDetails(e) {
-    setPersonalDetails(() => {
-      const field = e.target.name;
-      const newState = { ...personalDetails, [field]: e.target.value };
-      return newState;
-    });
-  }
+
+  const [educationDetails, setEducationDetails] = useState([
+    // List of objects
+    {
+      institute: '',
+      period: '',
+      course: '',
+      result: '',
+      description: [], // List of strings
+    },
+  ]);
+
   return (
     <main className="app-wrapper">
       <Split
@@ -33,7 +38,9 @@ function App() {
       >
         <Form
           personalDetails={personalDetails}
-          handleChangePersonalDetails={handleChangePersonalDetails}
+          setPersonalDetails={setPersonalDetails}
+          educationDetails={educationDetails}
+          setEducationDetails={setEducationDetails}
         ></Form>
         <Viewer></Viewer>
       </Split>
