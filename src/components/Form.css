@@ -2,6 +2,7 @@
   min-width: 500px;
   width: 100%;
   overflow-y: auto;
+  scrollbar-gutter: stable;
 }
 
 .form-wrapper > * {

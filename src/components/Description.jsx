@@ -27,8 +27,8 @@ export default function Description({ descriptionArr, updateDescriptionArr }) {
         type="text"
         placeholder={
           idx === 0
-            ? 'Specialized in artificial intelligence, machine learning and data analysis'
-            : 'Another description'
+            ? 'Specialized in artificial intelligence, machine learning and data analysis*'
+            : 'Another description*'
         }
         required={true}
         value={text}
