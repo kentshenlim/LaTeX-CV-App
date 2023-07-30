@@ -2,47 +2,66 @@ import FormBox from './FormBox';
 import PropTypes from 'prop-types';
 import './EducationBox.css';
 
-export default function EducationBox({ idPrefix }) {
-  return (
-    <div className="education-box-wrapper">
+export default function EducationBox({
+  educationDetails,
+  setEducationDetails,
+}) {
+  function handleChangeEducationDetails(e, id) {
+    const newState = educationDetails.map((obj) => {
+      if (obj.id !== id) return obj;
+      return { ...obj, [e.target.name]: e.target.value };
+    });
+    setEducationDetails(newState);
+  }
+
+  const arrJSX = educationDetails.map((obj, idx) => (
+    <div className="education-box-wrapper" key={obj.id}>
       <FormBox
         ionIconName="school"
         inputType="text"
-        inputID={`institute_${idPrefix}`}
+        inputID="institute"
         labelText="Institute"
         placeholderText="University of Cambridge"
         isRequired={true}
+        value={educationDetails[idx].institute}
+        handleChange={(e) => handleChangeEducationDetails(e, obj.id)}
       />
       <FormBox
         ionIconName="calendar-clear"
         inputType="text"
-        inputID={`period${idPrefix}`}
+        inputID="period"
         labelText="Period"
         placeholderText="Oct 2019 - June 2023"
         isRequired={true}
+        value={educationDetails[idx].period}
+        handleChange={(e) => handleChangeEducationDetails(e, obj.id)}
       />
       <FormBox
         ionIconName="book"
         inputType="text"
-        inputID={`course_${idPrefix}`}
+        inputID="course"
         labelText="Course"
         placeholderText="MSc, Adv. Computer Science"
         isRequired={true}
+        value={educationDetails[idx].course}
+        handleChange={(e) => handleChangeEducationDetails(e, obj.id)}
       />
       <FormBox
         ionIconName="trophy"
         inputType="text"
-        inputID={`result_${idPrefix}`}
+        inputID="result"
         labelText="Result"
         placeholderText="Predicted 1:1"
         isRequired={false}
+        value={educationDetails[idx].result}
+        handleChange={(e) => handleChangeEducationDetails(e, obj.id)}
       />
       <div className="description-header">
         <ion-icon name="list"></ion-icon>
         <h4>Description</h4>
         <ion-icon name="add-circle"></ion-icon>
       </div>
-      <div>
+      {/* <div>
         <input
           type="text"
           name="de"
@@ -57,11 +76,13 @@ export default function EducationBox({ idPrefix }) {
       <div className="optional">
         <ion-icon name="close"></ion-icon>
         <input type="text" name="de" id="de" className="optional" />
-      </div>
+      </div> */}
     </div>
-  );
+  ));
+  return <>{arrJSX}</>;
 }
 
 EducationBox.propTypes = {
-  idPrefix: PropTypes.string.isRequired,
+  educationDetails: PropTypes.array.isRequired,
+  setEducationDetails: PropTypes.func.isRequired,
 };

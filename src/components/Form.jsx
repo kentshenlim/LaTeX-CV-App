@@ -4,9 +4,9 @@ import FormBox from './FormBox';
 import EducationBox from './EducationBox';
 
 export default function Form({
-  personalDetails,
+  personalDetails, // Object
   setPersonalDetails,
-  educationDetails,
+  educationDetails, // Array of objects
   setEducationDetails,
 }) {
   function handleChangePersonalDetails(e) {
@@ -60,10 +60,13 @@ export default function Form({
           handleChange={handleChangePersonalDetails}
         />
       </section>
-      {/* <section className="education">
+      <section className="education">
         <h2>Education</h2>
-        <EducationBox idPrefix="1" />
-      </section> */}
+        <EducationBox
+          educationDetails={educationDetails}
+          setEducationDetails={setEducationDetails}
+        />
+      </section>
       <nav>
         <button type="submit">Compile</button>
         <button type="submit">Download</button>
@@ -75,4 +78,6 @@ export default function Form({
 Form.propTypes = {
   personalDetails: PropTypes.object.isRequired,
   setPersonalDetails: PropTypes.func.isRequired,
+  educationDetails: PropTypes.array.isRequired,
+  setEducationDetails: PropTypes.func.isRequired,
 };

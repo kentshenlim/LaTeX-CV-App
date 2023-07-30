@@ -15,6 +15,7 @@ function App() {
   const [educationDetails, setEducationDetails] = useState([
     // List of objects
     {
+      id: 0, // Might need later
       institute: '',
       period: '',
       course: '',
