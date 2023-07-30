@@ -1,4 +1,5 @@
 import FormBox from './FormBox';
+import Description from './Description';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import './EducationBox.css';
@@ -22,7 +23,7 @@ export default function EducationBox({
       period: '',
       course: '',
       result: '',
-      description: [], // List of strings
+      description: [['', 0]], // List of strings
     };
     setEducationDetails([...educationDetails, newObj]);
   }
@@ -30,6 +31,16 @@ export default function EducationBox({
   function handleClickDelete(id) {
     const newState = educationDetails.filter((obj) => obj.id !== id);
     setEducationDetails(newState);
+  }
+
+  function getUpdateDescriptionArr(id) {
+    return function updateDescriptionArr(newArr) {
+      const newState = educationDetails.map((obj) => {
+        if (obj.id !== id) return obj; // Do not touch other education
+        return { ...obj, description: newArr };
+      });
+      setEducationDetails(newState);
+    };
   }
 
   const arrJSX = educationDetails.map((obj, idx) => (
@@ -74,27 +85,11 @@ export default function EducationBox({
         value={educationDetails[idx].result}
         handleChange={(e) => handleChangeEducationDetails(e, obj.id)}
       />
-      <div className="description-header">
-        <ion-icon name="list"></ion-icon>
-        <h4>Description</h4>
-        <ion-icon name="add-circle"></ion-icon>
-      </div>
-      {/* <div>
-        <input
-          type="text"
-          name="de"
-          id="de"
-          placeholder="Specialized in artificial intelligence, machine learning and data analysis"
-        />
-      </div>
-      <div className="optional">
-        <ion-icon name="close"></ion-icon>
-        <input type="text" name="de" id="de" className="optional" />
-      </div>
-      <div className="optional">
-        <ion-icon name="close"></ion-icon>
-        <input type="text" name="de" id="de" className="optional" />
-      </div> */}
+
+      <Description
+        descriptionArr={obj.description}
+        updateDescriptionArr={getUpdateDescriptionArr(obj.id)}
+      ></Description>
       {idx !== 0 && (
         <button
           type="button"
@@ -110,7 +105,7 @@ export default function EducationBox({
     <>
       {arrJSX}
       <button type="button" className="add-education" onClick={handleClickAdd}>
-        Add
+        Add More
       </button>
     </>
   );

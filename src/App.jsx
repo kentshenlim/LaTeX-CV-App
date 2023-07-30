@@ -20,7 +20,7 @@ function App() {
       period: '',
       course: '',
       result: '',
-      description: [], // List of strings
+      description: [['', 0]], // Array of tuples: [str, id]
     },
   ]);
   console.log(educationDetails);
@@ -31,7 +31,7 @@ function App() {
         sizes={[50, 50]}
         minSize={100}
         expandToMin={false}
-        gutterSize={8}
+        gutterSize={16}
         gutterAlign="center"
         snapOffset={30}
         dragInterval={1}
