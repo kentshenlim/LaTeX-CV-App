@@ -4,7 +4,19 @@
   grid-template-columns: 1fr 1fr;
   row-gap: 0.5rem;
   column-gap: 2rem;
-  border: solid green 3px;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.education-box-wrapper:has(+ .education-box-wrapper) {
+  border-bottom: dashed rgb(128 121 121 / 20%) 3px;
+}
+
+.education-box-wrapper:has(input:focus) {
+  background-color: #b9bbe71f;
+  box-shadow: 0px 0px 10px #b9bbe750;
+  border-radius: 5px;
 }
 
 .education-box-wrapper > * {
@@ -74,4 +86,10 @@ h4 {
 .education-box-wrapper .optional > ion-icon:hover {
   cursor: pointer;
   color: #535bf2;
+}
+
+.education-box-wrapper .add-education {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

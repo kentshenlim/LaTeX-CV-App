@@ -1,5 +1,6 @@
 import FormBox from './FormBox';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 import './EducationBox.css';
 
 export default function EducationBox({
@@ -12,6 +13,18 @@ export default function EducationBox({
       return { ...obj, [e.target.name]: e.target.value };
     });
     setEducationDetails(newState);
+  }
+
+  function handleClickAdd() {
+    const newObj = {
+      id: nanoid(), // Might need later
+      institute: '',
+      period: '',
+      course: '',
+      result: '',
+      description: [], // List of strings
+    };
+    setEducationDetails([...educationDetails, newObj]);
   }
 
   const arrJSX = educationDetails.map((obj, idx) => (
@@ -77,6 +90,15 @@ export default function EducationBox({
         <ion-icon name="close"></ion-icon>
         <input type="text" name="de" id="de" className="optional" />
       </div> */}
+      {idx === educationDetails.length - 1 && (
+        <button
+          type="button"
+          className="add-education"
+          onClick={handleClickAdd}
+        >
+          Add
+        </button>
+      )}
     </div>
   ));
   return <>{arrJSX}</>;

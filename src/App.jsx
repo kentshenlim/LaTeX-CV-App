@@ -23,6 +23,7 @@ function App() {
       description: [], // List of strings
     },
   ]);
+  console.log(educationDetails);
 
   return (
     <main className="app-wrapper">
