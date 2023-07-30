@@ -5,11 +5,10 @@
   row-gap: 0.5rem;
   column-gap: 2rem;
   margin-bottom: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0.5rem 1rem;
 }
 
-.education-box-wrapper:has(+ .education-box-wrapper) {
+.education-box-wrapper:not(:only-of-type) {
   border-bottom: dashed rgb(128 121 121 / 20%) 3px;
 }
 
@@ -100,4 +99,9 @@ h4 {
   background-color: #b9bbe71f;
   box-shadow: 0px 0px 10px #b9bbe750;
   border-radius: 5px;
+}
+
+.add-education {
+  display: block;
+  margin: 0 auto;
 }
