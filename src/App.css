@@ -12,6 +12,13 @@
 
 .gutter {
   background-color: rgb(26 26 26);
+  display: flex;
+  align-items: center;
+}
+.gutter::after {
+  content: url(./assets/ellipsis-vertical-outline.svg);
+  width: 100%;
+  background-color: rgba(107, 98, 98, 0.979);
 }
 .gutter:hover {
   background-color: #464954;
