@@ -1,0 +1,44 @@
+.description-header {
+  grid-column: 1 / 3;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.description-header > * {
+  height: 100%;
+}
+
+.description-header > :first-child {
+  margin-right: 0.5rem;
+}
+
+.description-header > :last-child {
+  margin-right: 0.5rem;
+  margin-left: auto;
+}
+.description-header > :last-child:hover {
+  cursor: pointer;
+  color: #535bf2;
+}
+.description-header > :last-child:active {
+  transform: scale(1.05);
+}
+
+.input-cross {
+  position: relative;
+}
+
+.input-cross > :nth-child(2) {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%) scale(1);
+}
+.input-cross > :nth-child(2):hover {
+  cursor: pointer;
+  color: #535bf2;
+}
+.input-cross > :nth-child(2):active {
+  transform: translateY(-50%) scale(1.2);
+}

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import './Description.css';
 
 export default function Description({ descriptionArr, updateDescriptionArr }) {
   function handleChange(e, id) {
