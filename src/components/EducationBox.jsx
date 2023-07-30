@@ -27,6 +27,11 @@ export default function EducationBox({
     setEducationDetails([...educationDetails, newObj]);
   }
 
+  function handleClickDelete(id) {
+    const newState = educationDetails.filter((obj) => obj.id !== id);
+    setEducationDetails(newState);
+  }
+
   const arrJSX = educationDetails.map((obj, idx) => (
     <div className="education-box-wrapper" key={obj.id}>
       <FormBox
@@ -90,18 +95,25 @@ export default function EducationBox({
         <ion-icon name="close"></ion-icon>
         <input type="text" name="de" id="de" className="optional" />
       </div> */}
-      {idx === educationDetails.length - 1 && (
+      {idx !== 0 && (
         <button
           type="button"
-          className="add-education"
-          onClick={handleClickAdd}
+          className="delete-education"
+          onClick={() => handleClickDelete(obj.id)}
         >
-          Add
+          Delete
         </button>
       )}
     </div>
   ));
-  return <>{arrJSX}</>;
+  return (
+    <>
+      {arrJSX}
+      <button type="button" className="add-education" onClick={handleClickAdd}>
+        Add
+      </button>
+    </>
+  );
 }
 
 EducationBox.propTypes = {
