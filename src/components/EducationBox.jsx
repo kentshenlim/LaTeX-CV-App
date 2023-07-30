@@ -34,7 +34,7 @@ export default function EducationBox({
         inputType="text"
         inputID="institute"
         labelText="Institute"
-        placeholderText="University of Cambridge"
+        placeholderText="University of Oxford"
         isRequired={true}
         value={educationDetails[idx].institute}
         handleChange={(e) => handleChangeEducationDetails(e, obj.id)}
@@ -54,7 +54,7 @@ export default function EducationBox({
         inputType="text"
         inputID="course"
         labelText="Course"
-        placeholderText="MSc, Adv. Computer Science"
+        placeholderText="MSc, Computer Science"
         isRequired={true}
         value={educationDetails[idx].course}
         handleChange={(e) => handleChangeEducationDetails(e, obj.id)}
