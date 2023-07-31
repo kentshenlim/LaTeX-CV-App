@@ -3,6 +3,7 @@
   width: 100%;
   overflow-y: auto;
   scrollbar-gutter: stable;
+  padding: 1rem;
 }
 
 .form-wrapper > * {
