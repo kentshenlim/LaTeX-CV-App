@@ -1,6 +1,6 @@
 function escapeString(str) {
   if (str === undefined || str === null) return str;
-  return str.replace(/[_*+^${}|[\]\\]/g, '\\$&');
+  return str.replace(/[_+^${}|[\]\\]/g, '\\$&');
 }
 
 const texStringCreator = (() => {
@@ -59,6 +59,34 @@ const texStringCreator = (() => {
     return str;
   }
 
+  function getEducation(arr) {
+    const prepend = `\\section{Education}
+\\begin{tabularx}{\\linewidth}{@{}X@{}}	`;
+    
+    function getOneEducation({ institute, period, course, result, description }) {
+      [institute, period, course, result] = [
+        escapeString(institute),
+        escapeString(period),
+        escapeString(course),
+        escapeString(result)
+      ];
+      let res = `\\textbf{${institute}} \\hfill \\normalsize ${period} \\\\
+${course}, ${result}
+\\begin{itemize}`;
+      for (let [d, ] of description) {
+        d = escapeString(d);
+        res += `\\item ${d}`
+      }
+      res += `\\end{itemize}
+\\\\`;
+      return res;
+    }
+    let body = '';
+    for (const obj of arr) body += getOneEducation(obj);
+    const append = `\\end{tabularx}`;
+    return prepend + body + append;
+  }
+
   function getEndDocument() {
     const str = `\\vfill
 \\center{\\footnotesize Last updated: \\today}
@@ -66,7 +94,7 @@ const texStringCreator = (() => {
     return str;
   }
 
-    return {getPreamble, getPersonalDetails, getEndDocument}
+    return {getPreamble, getPersonalDetails, getEducation, getEndDocument}
 })();
 
 

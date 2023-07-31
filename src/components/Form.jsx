@@ -26,11 +26,13 @@ export default function Form({
     }); // Validation has been prevented by preventDefault
     const personalDetailsStr =
       texStringCreator.getPersonalDetails(personalDetails);
+    const educationDetailsStr = texStringCreator.getEducation(educationDetails);
+    console.log(educationDetailsStr);
     const blobStr =
       texStringCreator.getPreamble() +
       personalDetailsStr +
+      educationDetailsStr +
       texStringCreator.getEndDocument();
-    console.log(personalDetailsStr);
     const file = getTexFile(blobStr);
     const url = await fetchPDF(file);
     setViewerAddress(url);
@@ -74,7 +76,7 @@ export default function Form({
         >
           Compile
         </button>
-        <button type="submit">Download</button>
+        <button type="submit">Clear</button>
       </nav>
     </form>
   );

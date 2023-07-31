@@ -2,11 +2,9 @@ import Split from 'react-split';
 import Form from './components/Form';
 import Viewer from './components/Viewer';
 import { useState } from 'react';
-import texStringCreator from './utils/texStringCreator';
 import './App.css';
 
 function App() {
-  // texStringCreator.getPreamble();
   const [personalDetails, setPersonalDetails] = useState({
     name: '',
     email: '',
