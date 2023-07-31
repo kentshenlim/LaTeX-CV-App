@@ -1,3 +1,8 @@
+function escapeString(str) {
+  if (str === undefined || str === null) return str;
+  return str.replace(/[_*+^${}|[\]\\]/g, '\\$&');
+}
+
 const texStringCreator = (() => {
     function getPreamble() {
       const str = `\\documentclass[a4paper,11pt]{article}
@@ -30,21 +35,25 @@ const texStringCreator = (() => {
 \\setlength\\bibitemsep{1em}
 \\begin{document}
 \\pagestyle{empty}`;
-      console.log(str);
       return str;
     }
 
   function getPersonalDetails({name, email, gitHub, linkedIn}) {
+    [name, email, gitHub, linkedIn] = [
+      escapeString(name),
+      escapeString(email),
+      escapeString(gitHub),
+      escapeString(linkedIn)];
     let str = `\\begin{tabularx}{\\linewidth}{@{} C @{}}
-\\Huge{${name}} \\\\[7.5pt]
-\\href{mailto:${email}}{\\raisebox{-0.05\\height}\\faEnvelope\\ \\underline{${email}}} \\ $|$ \\ `
+\\Huge{${name.toUpperCase()}} \\\\[7.5pt]
+\\href{mailto:${email}}{\\raisebox{-0.05\\height}\\faEnvelope\\ \\underline{${email}}} \\  `
     if (gitHub) {
       const slicedGitHub = gitHub.replace(/(^\w+:|^)\/\//, ''); // Remove "https://"
-      str += `\\href{${gitHub}}{\\raisebox{-0.05\\height}\\faGithub\\ \\underline{${slicedGitHub}}} \\ $|$ \\ `;
+      str += `$|$ \\ \\href{${gitHub}}{\\raisebox{-0.05\\height}\\faGithub\\ \\underline{${slicedGitHub}}} \\  `;
     }
     if (linkedIn) {
       const slicedLinkedIn = linkedIn.replace(/(^\w+:|^)\/\//, '');
-      str += `\\href{${linkedIn}}{\\raisebox{-0.05\\height}\\faLinkedin\\ \\underline{${slicedLinkedIn}}} \\ `;
+      str += `$|$ \\ \\href{${linkedIn}}{\\raisebox{-0.05\\height}\\faLinkedin\\ \\underline{${slicedLinkedIn}}} \\ `;
     }
     str += `\\end{tabularx}`;
     return str;
