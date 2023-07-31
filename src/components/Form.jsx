@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import FormBox from './FormBox';
 import EducationBox from './EducationBox';
 import ExperienceBox from './ExperienceBox';
+import SkillsBox from './SkillsBox';
 export default function Form({
   personalDetails, // Object
   setPersonalDetails,
@@ -10,6 +11,8 @@ export default function Form({
   setEducationDetails,
   experienceDetails, // Array of objects
   setExperienceDetails,
+  skillsDetails,
+  setSkillsDetails,
 }) {
   function handleChangePersonalDetails(e) {
     const field = e.target.name;
@@ -78,6 +81,10 @@ export default function Form({
       </section>
       <section className="skills">
         <h2>Skills & Interests</h2>
+        <SkillsBox
+          skillDetails={skillsDetails}
+          setSkillDetails={setSkillsDetails}
+        />
       </section>
       <nav>
         <button type="submit">Compile</button>
@@ -94,4 +101,6 @@ Form.propTypes = {
   setEducationDetails: PropTypes.func.isRequired,
   experienceDetails: PropTypes.array.isRequired,
   setExperienceDetails: PropTypes.func.isRequired,
+  skillsDetails: PropTypes.array.isRequired,
+  setSkillsDetails: PropTypes.func.isRequired,
 };

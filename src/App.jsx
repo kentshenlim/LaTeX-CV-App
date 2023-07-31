@@ -33,6 +33,14 @@ function App() {
     },
   ]);
 
+  const [skillsDetails, setSkillsDetails] = useState([
+    {
+      id: 0,
+      category: '',
+      descriptionStr: '',
+    },
+  ]);
+
   console.log(experienceDetails);
 
   return (
@@ -55,6 +63,8 @@ function App() {
           setEducationDetails={setEducationDetails}
           experienceDetails={experienceDetails}
           setExperienceDetails={setExperienceDetails}
+          skillsDetails={skillsDetails}
+          setSkillsDetails={setSkillsDetails}
         ></Form>
         <Viewer></Viewer>
       </Split>
