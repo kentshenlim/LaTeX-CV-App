@@ -2,12 +2,14 @@ import './Form.css';
 import PropTypes from 'prop-types';
 import FormBox from './FormBox';
 import EducationBox from './EducationBox';
-
+import ExperienceBox from './ExperienceBox';
 export default function Form({
   personalDetails, // Object
   setPersonalDetails,
   educationDetails, // Array of objects
   setEducationDetails,
+  experienceDetails, // Array of objects
+  setExperienceDetails,
 }) {
   function handleChangePersonalDetails(e) {
     const field = e.target.name;
@@ -67,6 +69,13 @@ export default function Form({
           setEducationDetails={setEducationDetails}
         />
       </section>
+      <section className="experience">
+        <h2>Project & Experience</h2>
+        <ExperienceBox
+          experienceDetails={experienceDetails}
+          setExperienceDetails={setExperienceDetails}
+        />
+      </section>
       <nav>
         <button type="submit">Compile</button>
         <button type="submit">Download</button>
@@ -80,4 +89,6 @@ Form.propTypes = {
   setPersonalDetails: PropTypes.func.isRequired,
   educationDetails: PropTypes.array.isRequired,
   setEducationDetails: PropTypes.func.isRequired,
+  experienceDetails: PropTypes.array.isRequired,
+  setExperienceDetails: PropTypes.func.isRequired,
 };

@@ -8,7 +8,7 @@
 .form-wrapper > * {
   width: 100%;
   padding: 1rem;
-  border-style: double;
+  border: double rgb(128, 121, 121) 3px;
 }
 
 .form-wrapper > :nth-child(2) {

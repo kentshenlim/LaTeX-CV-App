@@ -15,7 +15,7 @@ function App() {
   const [educationDetails, setEducationDetails] = useState([
     // List of objects
     {
-      id: 0, // Might need later
+      id: 0,
       institute: '',
       period: '',
       course: '',
@@ -23,6 +23,16 @@ function App() {
       description: [['', 0]], // Array of tuples: [str, id]
     },
   ]);
+
+  const [experienceDetails, setExperienceDetails] = useState([
+    {
+      id: 0,
+      title: '',
+      period: '',
+      description: [['', 0]], // Array of tuples: [str, id]
+    },
+  ]);
+
   console.log(educationDetails);
 
   return (
@@ -43,6 +53,8 @@ function App() {
           setPersonalDetails={setPersonalDetails}
           educationDetails={educationDetails}
           setEducationDetails={setEducationDetails}
+          experienceDetails={experienceDetails}
+          setExperienceDetails={setExperienceDetails}
         ></Form>
         <Viewer></Viewer>
       </Split>
