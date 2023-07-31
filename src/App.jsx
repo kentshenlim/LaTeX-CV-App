@@ -41,7 +41,7 @@ function App() {
     },
   ]);
 
-  console.log(experienceDetails);
+  console.log(skillsDetails);
 
   return (
     <main className="app-wrapper">
