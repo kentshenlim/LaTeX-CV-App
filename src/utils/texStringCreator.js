@@ -136,10 +136,8 @@ ${course}, ${result}
 \\end{document}`;
     return str;
   }
-
     return {getPreamble, getPersonal, getEducation, getExperience, getSkills, getEndDocument}
 })();
-
 
 
 export default texStringCreator;
