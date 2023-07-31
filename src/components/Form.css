@@ -69,3 +69,64 @@ label {
   width: 100%;
   justify-content: space-around;
 }
+
+/* Common stylings among education box and experience box --------------------*/
+.education-box-wrapper,
+.experience-box-wrapper {
+  display: grid;
+  row-gap: 0.5rem;
+  column-gap: 2rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.education-box-wrapper:not(:only-of-type),
+.experience-box-wrapper:not(:only-of-type) {
+  border-bottom: dashed rgb(128 121 121 / 20%) 3px;
+}
+
+.education-box-wrapper:not(:only-of-type):has(input:focus),
+.experience-box-wrapper:not(:only-of-type):has(input:focus) {
+  background-color: #b9bbe71f;
+  box-shadow: 0px 0px 10px #b9bbe750;
+  border-radius: 5px;
+}
+
+.education-box-wrapper > *,
+.experience-box-wrapper > * {
+  height: 36px;
+}
+
+.education-box-wrapper input,
+.experience-box-wrapper input {
+  height: 80%;
+}
+
+.education-box-wrapper h4,
+.experience-box-wrapper h4 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.education-box-wrapper .delete-education,
+.experience-box-wrapper .delete-experience {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 2 / 3;
+  width: 30%;
+  justify-self: end;
+}
+.education-box-wrapper:has(.delete-education:hover),
+.experience-box-wrapper:has(.delete-experience:hover) {
+  background-color: #b9bbe71f;
+  box-shadow: 0px 0px 10px #b9bbe750;
+  border-radius: 5px;
+}
+
+.add-education,
+.add-experience {
+  display: block;
+  margin: 0 auto;
+}

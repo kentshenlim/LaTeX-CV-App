@@ -1,35 +1,6 @@
 .experience-box-wrapper {
-  display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-  row-gap: 0.5rem;
-  column-gap: 2rem;
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
-}
-
-.experience-box-wrapper:not(:only-of-type) {
-  border-bottom: dashed rgb(128 121 121 / 20%) 3px;
-}
-
-.experience-box-wrapper:not(:only-of-type):has(input:focus) {
-  background-color: #b9bbe71f;
-  box-shadow: 0px 0px 10px #b9bbe750;
-  border-radius: 5px;
-}
-
-.experience-box-wrapper > * {
-  height: 36px;
-}
-
-.experience-box-wrapper input {
-  height: 80%;
-}
-
-h4 {
-  margin: 0;
-  display: flex;
-  align-items: center;
 }
 
 .experience-box-wrapper > :nth-child(n + 4) {
@@ -40,23 +11,4 @@ h4 {
 .experience-box-wrapper > :nth-child(n + 4) > input {
   height: 100%;
   width: 100%;
-}
-
-.experience-box-wrapper .delete-education {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  grid-column: 2 / 3;
-  width: 30%;
-  justify-self: end;
-}
-.experience-box-wrapper:has(.delete-education:hover) {
-  background-color: #b9bbe71f;
-  box-shadow: 0px 0px 10px #b9bbe750;
-  border-radius: 5px;
-}
-
-.add-experience {
-  display: block;
-  margin: 0 auto;
 }
