@@ -24,17 +24,18 @@ export default function Form({
     inputs.forEach((input) => {
       input.checkValidity();
     }); // Validation has been prevented by preventDefault
-    const personalDetailsStr =
-      texStringCreator.getPersonalDetails(personalDetails);
+    const personalDetailsStr = texStringCreator.getPersonal(personalDetails);
     const educationDetailsStr = texStringCreator.getEducation(educationDetails);
     const experienceDetailsStr =
       texStringCreator.getExperience(experienceDetails);
+    const skillsDetailsStr = texStringCreator.getSkills(skillsDetails);
     console.log(experienceDetailsStr);
     const blobStr =
       texStringCreator.getPreamble() +
       personalDetailsStr +
       educationDetailsStr +
       experienceDetailsStr +
+      skillsDetailsStr +
       texStringCreator.getEndDocument();
     const file = getTexFile(blobStr);
     const url = await fetchPDF(file);

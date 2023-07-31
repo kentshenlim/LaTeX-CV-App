@@ -38,7 +38,7 @@ const texStringCreator = (() => {
       return str;
     }
 
-  function getPersonalDetails({name, email, gitHub, linkedIn}) {
+  function getPersonal({name, email, gitHub, linkedIn}) {
     [name, email, gitHub, linkedIn] = [
       escapeString(name),
       escapeString(email),
@@ -108,6 +108,7 @@ ${course}, ${result}
     \\end{minipage} 
     }
     \\end{tabularx}
+
     `;
       return res;
     }
@@ -115,9 +116,19 @@ ${course}, ${result}
         let body = '';
     for (const obj of arr) body += getOneExperience(obj);
     return prepend + body;
-}
+  }
 
-
+  function getSkills(arr) {
+    const prepend = ` \\section{Skills \\& Interests}
+\\begin{tabularx}{\\linewidth}{@{}l X@{}}`;
+    function getOneSkill({ category, descriptionStr }) {
+      return `\\textbf{${category}} &  \\normalsize{${descriptionStr}}\\\\`;
+    }
+    let body = '';
+    for (const obj of arr) body += getOneSkill(obj);
+    const append = `\\end{tabularx}`
+    return prepend + body + append;
+  }
 
   function getEndDocument() {
     const str = `\\vfill
@@ -126,7 +137,7 @@ ${course}, ${result}
     return str;
   }
 
-    return {getPreamble, getPersonalDetails, getEducation, getExperience, getEndDocument}
+    return {getPreamble, getPersonal, getEducation, getExperience, getSkills, getEndDocument}
 })();
 
 
