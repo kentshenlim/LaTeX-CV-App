@@ -24,7 +24,7 @@ export default function Form({
         <FormBox
           ionIconName="person-circle"
           inputType="text"
-          inputID="name"
+          inputName="name"
           labelText="Name"
           placeholderText="John Doe"
           isRequired={true}
@@ -34,7 +34,7 @@ export default function Form({
         <FormBox
           ionIconName="mail"
           inputType="email"
-          inputID="email"
+          inputName="email"
           labelText="Email"
           placeholderText="john.doe@hotmail.com"
           isRequired={true}
@@ -44,7 +44,7 @@ export default function Form({
         <FormBox
           ionIconName="logo-github"
           inputType="url"
-          inputID="gitHub"
+          inputName="gitHub"
           labelText="GitHub"
           placeholderText="https://github.com/johnDoe"
           isRequired={false}
@@ -54,7 +54,7 @@ export default function Form({
         <FormBox
           ionIconName="logo-linkedin"
           inputType="url"
-          inputID="linkedIn"
+          inputName="linkedIn"
           labelText="LinkedIn"
           placeholderText="https://www.linkedin.com/in/johnDoe"
           isRequired={false}

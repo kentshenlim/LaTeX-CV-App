@@ -48,7 +48,8 @@ export default function EducationBox({
       <FormBox
         ionIconName="school"
         inputType="text"
-        inputID="institute"
+        inputName="institute"
+        inputIDForLabel={`institute-${obj.id}`}
         labelText="Institute"
         placeholderText="University of Oxford"
         isRequired={true}
@@ -58,7 +59,8 @@ export default function EducationBox({
       <FormBox
         ionIconName="calendar-clear"
         inputType="text"
-        inputID="period"
+        inputName="period"
+        inputIDForLabel={`period-${obj.id}`}
         labelText="Period"
         placeholderText="Oct 2019 - June 2023"
         isRequired={true}
@@ -68,7 +70,8 @@ export default function EducationBox({
       <FormBox
         ionIconName="book"
         inputType="text"
-        inputID="course"
+        inputName="course"
+        inputIDForLabel={`course-${obj.id}`}
         labelText="Course"
         placeholderText="MSc, Computer Science"
         isRequired={true}
@@ -78,7 +81,8 @@ export default function EducationBox({
       <FormBox
         ionIconName="trophy"
         inputType="text"
-        inputID="result"
+        inputName="result"
+        inputIDForLabel={`result-${obj.id}`}
         labelText="Result"
         placeholderText="Predicted 1:1"
         isRequired={false}

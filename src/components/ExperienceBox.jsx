@@ -17,7 +17,7 @@ export default function ExperienceBox({
       <FormBox
         ionIconName="locate-outline"
         inputType="text"
-        inputID="title"
+        inputName="title"
         labelText="Title"
         placeholderText="The Odin Project"
         isRequired={true}

@@ -4,7 +4,8 @@ import './FormBox.css';
 export default function FormBox({
   ionIconName,
   inputType,
-  inputID,
+  inputName,
+  inputIDForLabel,
   labelText,
   placeholderText,
   isRequired,
@@ -14,12 +15,14 @@ export default function FormBox({
   return (
     <div className="form-box-wrapper">
       <ion-icon name={ionIconName}></ion-icon>
-      <label htmlFor={inputID}>{labelText}</label>
+      <label htmlFor={inputIDForLabel ? inputIDForLabel : inputName}>
+        {labelText}
+      </label>
       <input
         type={inputType}
         placeholder={placeholderText + (isRequired ? '*' : '')}
-        id={inputID}
-        name={inputID}
+        id={inputIDForLabel ? inputIDForLabel : inputName}
+        name={inputName}
         required={isRequired}
         value={value}
         onChange={handleChange}
@@ -31,7 +34,8 @@ export default function FormBox({
 FormBox.propTypes = {
   ionIconName: PropTypes.string.isRequired,
   inputType: PropTypes.string.isRequired,
-  inputID: PropTypes.string.isRequired,
+  inputName: PropTypes.string.isRequired,
+  inputIDForLabel: PropTypes.string,
   labelText: PropTypes.string.isRequired,
   placeholderText: PropTypes.string.isRequired,
   isRequired: PropTypes.bool.isRequired,
