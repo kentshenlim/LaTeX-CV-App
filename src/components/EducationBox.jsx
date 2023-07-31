@@ -93,6 +93,8 @@ export default function EducationBox({
       <Description
         descriptionArr={obj.description}
         updateDescriptionArr={getUpdateDescriptionArr(obj.id)}
+        firstPlaceholder="Specialized in artificial intelligence, machine learning and data analysis*"
+        secondPlaceholder="Another description*"
       ></Description>
       {idx !== 0 && (
         <button

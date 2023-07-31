@@ -11,13 +11,15 @@
   border: double rgb(128, 121, 121) 3px;
 }
 
-.form-wrapper > :nth-child(2) {
-  /* Education need padding in inner containers */
+.form-wrapper > :nth-child(2),
+.form-wrapper > :nth-child(3) {
+  /* Education and experience need padding in inner containers */
   padding-left: 0;
   padding-right: 0;
 }
 
-.form-wrapper > :nth-child(2) > h2 {
+.form-wrapper > :nth-child(2) > h2,
+.form-wrapper > :nth-child(3) > h2 {
   margin-left: 1rem;
 }
 

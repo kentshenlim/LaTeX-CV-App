@@ -33,7 +33,7 @@ function App() {
     },
   ]);
 
-  console.log(educationDetails);
+  console.log(experienceDetails);
 
   return (
     <main className="app-wrapper">

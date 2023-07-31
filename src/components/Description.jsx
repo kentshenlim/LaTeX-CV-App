@@ -2,7 +2,12 @@ import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import './Description.css';
 
-export default function Description({ descriptionArr, updateDescriptionArr }) {
+export default function Description({
+  descriptionArr,
+  updateDescriptionArr,
+  firstPlaceholder,
+  secondPlaceholder,
+}) {
   function handleChange(e, id) {
     const newArr = descriptionArr.map((tuple) => {
       if (tuple[1] !== id) return tuple;
@@ -25,11 +30,7 @@ export default function Description({ descriptionArr, updateDescriptionArr }) {
     <div key={id} className="input-cross">
       <input
         type="text"
-        placeholder={
-          idx === 0
-            ? 'Specialized in artificial intelligence, machine learning and data analysis*'
-            : 'Another description*'
-        }
+        placeholder={idx === 0 ? firstPlaceholder : secondPlaceholder}
         required={true}
         value={text}
         onChange={(e) => handleChange(e, id)}
@@ -58,4 +59,6 @@ export default function Description({ descriptionArr, updateDescriptionArr }) {
 Description.propTypes = {
   descriptionArr: PropTypes.array.isRequired,
   updateDescriptionArr: PropTypes.func.isRequired,
+  firstPlaceholder: PropTypes.string,
+  secondPlaceholder: PropTypes.string,
 };
