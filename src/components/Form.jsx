@@ -33,7 +33,7 @@ export default function Form({
     console.log(personalDetailsStr);
     const file = getTexFile(blobStr);
     const url = await fetchPDF(file);
-    console.log(url);
+    setViewerAddress(url);
   }
 
   return (
