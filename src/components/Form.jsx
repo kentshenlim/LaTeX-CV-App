@@ -27,11 +27,14 @@ export default function Form({
     const personalDetailsStr =
       texStringCreator.getPersonalDetails(personalDetails);
     const educationDetailsStr = texStringCreator.getEducation(educationDetails);
-    console.log(educationDetailsStr);
+    const experienceDetailsStr =
+      texStringCreator.getExperience(experienceDetails);
+    console.log(experienceDetailsStr);
     const blobStr =
       texStringCreator.getPreamble() +
       personalDetailsStr +
       educationDetailsStr +
+      experienceDetailsStr +
       texStringCreator.getEndDocument();
     const file = getTexFile(blobStr);
     const url = await fetchPDF(file);

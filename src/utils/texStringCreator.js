@@ -87,6 +87,38 @@ ${course}, ${result}
     return prepend + body + append;
   }
 
+  function getExperience(arr) {
+    const prepend = `\\section{Project \\& Experience}`;
+
+    function getOneExperience({ title, period, description }) {
+      [title, period] = [
+        escapeString(title),
+        escapeString(period),
+      ];
+      let res = `\\begin{tabularx}{\\linewidth}{ @{}l r@{} }
+\\textbf{${title}} & \\hfill ${period} \\\\[3.75pt]
+\\multicolumn{2}{@{}X@{}}{
+\\begin{minipage}[t]{\\linewidth}
+    \\begin{itemize}[nosep,after=\\strut, leftmargin=1em, itemsep=3pt]`
+      for (let [d,] of description) {
+        d = escapeString(d);
+        res += `\\item[--] ${d}`;
+      }
+      res += `\\end{itemize}
+    \\end{minipage} 
+    }
+    \\end{tabularx}
+    `;
+      return res;
+    }
+
+        let body = '';
+    for (const obj of arr) body += getOneExperience(obj);
+    return prepend + body;
+}
+
+
+
   function getEndDocument() {
     const str = `\\vfill
 \\center{\\footnotesize Last updated: \\today}
@@ -94,7 +126,7 @@ ${course}, ${result}
     return str;
   }
 
-    return {getPreamble, getPersonalDetails, getEducation, getEndDocument}
+    return {getPreamble, getPersonalDetails, getEducation, getExperience, getEndDocument}
 })();
 
 
