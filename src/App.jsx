@@ -41,8 +41,6 @@ function App() {
     },
   ]);
 
-  console.log(skillsDetails);
-
   return (
     <main className="app-wrapper">
       <Split

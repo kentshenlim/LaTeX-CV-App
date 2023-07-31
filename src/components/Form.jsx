@@ -1,6 +1,6 @@
 import './Form.css';
 import PropTypes from 'prop-types';
-import FormBox from './FormBox';
+import PersonalBox from './PersonalBox';
 import EducationBox from './EducationBox';
 import ExperienceBox from './ExperienceBox';
 import SkillsBox from './SkillsBox';
@@ -11,58 +11,16 @@ export default function Form({
   setEducationDetails,
   experienceDetails, // Array of objects
   setExperienceDetails,
-  skillsDetails,
+  skillsDetails, // Array of objects
   setSkillsDetails,
 }) {
-  function handleChangePersonalDetails(e) {
-    const field = e.target.name;
-    const newState = { ...personalDetails, [field]: e.target.value };
-    setPersonalDetails(newState);
-  }
-
   return (
     <form className="form-wrapper">
       <section className="personal-details">
         <h2>Personal Details</h2>
-        <FormBox
-          ionIconName="person-circle"
-          inputType="text"
-          inputName="name"
-          labelText="Name"
-          placeholderText="John Doe"
-          isRequired={true}
-          value={personalDetails.name}
-          handleChange={handleChangePersonalDetails}
-        />
-        <FormBox
-          ionIconName="mail"
-          inputType="email"
-          inputName="email"
-          labelText="Email"
-          placeholderText="john.doe@hotmail.com"
-          isRequired={true}
-          value={personalDetails.email}
-          handleChange={handleChangePersonalDetails}
-        />
-        <FormBox
-          ionIconName="logo-github"
-          inputType="url"
-          inputName="gitHub"
-          labelText="GitHub"
-          placeholderText="https://github.com/johnDoe"
-          isRequired={false}
-          value={personalDetails.gitHub}
-          handleChange={handleChangePersonalDetails}
-        />
-        <FormBox
-          ionIconName="logo-linkedin"
-          inputType="url"
-          inputName="linkedIn"
-          labelText="LinkedIn"
-          placeholderText="https://www.linkedin.com/in/johnDoe"
-          isRequired={false}
-          value={personalDetails.linkedIn}
-          handleChange={handleChangePersonalDetails}
+        <PersonalBox
+          personalDetails={personalDetails}
+          setPersonalDetails={setPersonalDetails}
         />
       </section>
       <section className="education">
