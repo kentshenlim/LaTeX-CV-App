@@ -73,6 +73,20 @@ label {
   justify-content: space-around;
 }
 
+.form-wrapper > .key-btn > :first-child {
+  background-color: rgb(5, 85, 5);
+}
+.form-wrapper > .key-btn > :first-child:hover {
+  border-color: green;
+}
+
+.form-wrapper > .key-btn > :last-child {
+  background-color: rgb(165, 11, 11);
+}
+.form-wrapper > .key-btn > :last-child:hover {
+  border-color: red;
+}
+
 /* Common stylings among education, experience and skills box ----------------*/
 .education-box-wrapper,
 .experience-box-wrapper,

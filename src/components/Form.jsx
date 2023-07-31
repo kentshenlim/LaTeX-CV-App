@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './Form.css';
 import PropTypes from 'prop-types';
 import PersonalBox from './PersonalBox';
@@ -18,6 +19,8 @@ export default function Form({
   setSkillsDetails,
   setViewerAddress,
 }) {
+  const [isBusy, setIsBusy] = useState(false);
+
   async function handleClickCompile(e) {
     e.preventDefault();
     const inputs = document.querySelectorAll('input');
@@ -29,7 +32,6 @@ export default function Form({
     const experienceDetailsStr =
       texStringCreator.getExperience(experienceDetails);
     const skillsDetailsStr = texStringCreator.getSkills(skillsDetails);
-    console.log(experienceDetailsStr);
     const blobStr =
       texStringCreator.getPreamble() +
       personalDetailsStr +
@@ -72,15 +74,11 @@ export default function Form({
           setSkillDetails={setSkillsDetails}
         />
       </section>
-      <nav>
-        <button
-          type="submit"
-          className="compute-btn"
-          // onClick={handleClickCompile}
-        >
+      <nav className="key-btn">
+        <button type="submit" className="compute-btn" disabled={isBusy}>
           Compile
         </button>
-        <button type="submit">Clear</button>
+        <button type="button">Clear</button>
       </nav>
     </form>
   );
