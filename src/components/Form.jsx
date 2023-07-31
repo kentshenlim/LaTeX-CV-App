@@ -76,6 +76,9 @@ export default function Form({
           setExperienceDetails={setExperienceDetails}
         />
       </section>
+      <section className="skills">
+        <h2>Skills & Interests</h2>
+      </section>
       <nav>
         <button type="submit">Compile</button>
         <button type="submit">Download</button>
