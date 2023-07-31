@@ -1,6 +1,7 @@
 import FormBox from './FormBox';
 import PropTypes from 'prop-types';
 import Description from './Description';
+import { nanoid } from 'nanoid';
 import './ExperienceBox.css';
 
 export default function ExperienceBox({
@@ -25,7 +26,22 @@ export default function ExperienceBox({
     };
   }
 
-  const arrJSX = experienceDetails.map((obj) => (
+  function handleClickAdd() {
+    const newObj = {
+      id: nanoid(),
+      title: '',
+      period: '',
+      description: [['', 0]],
+    };
+    setExperienceDetails([...experienceDetails, newObj]);
+  }
+
+  function handleClickDelete(id) {
+    const newState = experienceDetails.filter((obj) => obj.id !== id);
+    setExperienceDetails(newState);
+  }
+
+  const arrJSX = experienceDetails.map((obj, idx) => (
     <div className="experience-box-wrapper" key={obj.id}>
       <FormBox
         ionIconName="locate-outline"
@@ -55,9 +71,25 @@ export default function ExperienceBox({
         firstPlaceholder="Developed a web-based e-commerce platform using HTML, CSS, JavaScript, and PHP*"
         secondPlaceholder="Another description*"
       />
+      {idx !== 0 && (
+        <button
+          type="button"
+          className="delete-experience"
+          onClick={() => handleClickDelete(obj.id)}
+        >
+          Delete
+        </button>
+      )}
     </div>
   ));
-  return <>{arrJSX}</>;
+  return (
+    <>
+      {arrJSX}
+      <button type="button" className="add-experience" onClick={handleClickAdd}>
+        Add More
+      </button>
+    </>
+  );
 }
 
 ExperienceBox.propTypes = {

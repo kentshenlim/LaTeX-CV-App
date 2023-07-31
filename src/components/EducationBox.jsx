@@ -18,12 +18,12 @@ export default function EducationBox({
 
   function handleClickAdd() {
     const newObj = {
-      id: nanoid(), // Might need later
+      id: nanoid(),
       institute: '',
       period: '',
       course: '',
       result: '',
-      description: [['', 0]], // List of strings
+      description: [['', 0]],
     };
     setEducationDetails([...educationDetails, newObj]);
   }
