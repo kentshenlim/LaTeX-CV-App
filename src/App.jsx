@@ -68,6 +68,7 @@ function App() {
           setExperienceDetails={setExperienceDetails}
           skillsDetails={skillsDetails}
           setSkillsDetails={setSkillsDetails}
+          setViewerAddress={setViewerAddress}
         ></Form>
         <Viewer viewerAddress={viewerAddress} />
       </Split>

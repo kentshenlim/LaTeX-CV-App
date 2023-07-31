@@ -36,7 +36,7 @@ const texStringCreator = (() => {
 
   function getPersonalDetails({name, email, gitHub, linkedIn}) {
     let str = `\\begin{tabularx}{\\linewidth}{@{} C @{}}
-\\Huge{${name}} \\[7.5pt]
+\\Huge{${name}} \\\\[7.5pt]
 \\href{mailto:${email}}{\\raisebox{-0.05\\height}\\faEnvelope\\ \\underline{${email}}} \\ $|$ \\ `
     if (gitHub) {
       const slicedGitHub = gitHub.replace(/(^\w+:|^)\/\//, ''); // Remove "https://"

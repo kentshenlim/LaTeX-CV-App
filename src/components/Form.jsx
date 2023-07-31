@@ -4,6 +4,9 @@ import PersonalBox from './PersonalBox';
 import EducationBox from './EducationBox';
 import ExperienceBox from './ExperienceBox';
 import SkillsBox from './SkillsBox';
+import texStringCreator from '../utils/texStringCreator';
+import getTexFile from '../utils/texFileCreator';
+import fetchPDF from '../utils/fetchPDF';
 export default function Form({
   personalDetails, // Object
   setPersonalDetails,
@@ -13,18 +16,28 @@ export default function Form({
   setExperienceDetails,
   skillsDetails, // Array of objects
   setSkillsDetails,
+  setViewerAddress,
 }) {
-  function handleClickCompile(e) {
+  async function handleClickCompile(e) {
     e.preventDefault();
-    console.log({
-      personalDetails: personalDetails,
-      educationDetails: educationDetails,
-      experienceDetails: experienceDetails,
-      skillsDetails: skillsDetails,
-    });
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach((input) => {
+      input.checkValidity();
+    }); // Validation has been prevented by preventDefault
+    const personalDetailsStr =
+      texStringCreator.getPersonalDetails(personalDetails);
+    const blobStr =
+      texStringCreator.getPreamble() +
+      personalDetailsStr +
+      texStringCreator.getEndDocument();
+    console.log(personalDetailsStr);
+    const file = getTexFile(blobStr);
+    const url = await fetchPDF(file);
+    console.log(url);
   }
+
   return (
-    <form className="form-wrapper">
+    <form className="form-wrapper" onSubmit={handleClickCompile}>
       <section className="personal-details">
         <h2>Personal Details</h2>
         <PersonalBox
@@ -57,7 +70,7 @@ export default function Form({
         <button
           type="submit"
           className="compute-btn"
-          onClick={handleClickCompile}
+          // onClick={handleClickCompile}
         >
           Compile
         </button>
@@ -76,4 +89,5 @@ Form.propTypes = {
   setExperienceDetails: PropTypes.func.isRequired,
   skillsDetails: PropTypes.array.isRequired,
   setSkillsDetails: PropTypes.func.isRequired,
+  setViewerAddress: PropTypes.func.isRequired,
 };
