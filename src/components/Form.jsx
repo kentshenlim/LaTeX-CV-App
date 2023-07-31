@@ -14,6 +14,15 @@ export default function Form({
   skillsDetails, // Array of objects
   setSkillsDetails,
 }) {
+  function handleClickCompile(e) {
+    e.preventDefault();
+    console.log({
+      personalDetails: personalDetails,
+      educationDetails: educationDetails,
+      experienceDetails: experienceDetails,
+      skillsDetails: skillsDetails,
+    });
+  }
   return (
     <form className="form-wrapper">
       <section className="personal-details">
@@ -45,7 +54,13 @@ export default function Form({
         />
       </section>
       <nav>
-        <button type="submit">Compile</button>
+        <button
+          type="submit"
+          className="compute-btn"
+          onClick={handleClickCompile}
+        >
+          Compile
+        </button>
         <button type="submit">Download</button>
       </nav>
     </form>

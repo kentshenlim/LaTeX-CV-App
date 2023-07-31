@@ -2,9 +2,11 @@ import Split from 'react-split';
 import Form from './components/Form';
 import Viewer from './components/Viewer';
 import { useState } from 'react';
+import texStringCreator from './utils/texStringCreator';
 import './App.css';
 
 function App() {
+  // texStringCreator.getPreamble();
   const [personalDetails, setPersonalDetails] = useState({
     name: '',
     email: '',
@@ -40,6 +42,9 @@ function App() {
       descriptionStr: '',
     },
   ]);
+  const [viewerAddress, setViewerAddress] = useState(
+    'https://www.africau.edu/images/default/sample.pdf'
+  );
 
   return (
     <main className="app-wrapper">
@@ -64,7 +69,7 @@ function App() {
           skillsDetails={skillsDetails}
           setSkillsDetails={setSkillsDetails}
         ></Form>
-        <Viewer></Viewer>
+        <Viewer viewerAddress={viewerAddress} />
       </Split>
     </main>
   );
