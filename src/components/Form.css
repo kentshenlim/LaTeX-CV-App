@@ -12,14 +12,16 @@
 }
 
 .form-wrapper > :nth-child(2),
-.form-wrapper > :nth-child(3) {
-  /* Education and experience need padding in inner containers */
+.form-wrapper > :nth-child(3),
+.form-wrapper > :nth-child(4) {
+  /* Education, experience and skills need padding in inner containers */
   padding-left: 0;
   padding-right: 0;
 }
 
 .form-wrapper > :nth-child(2) > h2,
-.form-wrapper > :nth-child(3) > h2 {
+.form-wrapper > :nth-child(3) > h2,
+.form-wrapper > :nth-child(4) > h2 {
   margin-left: 1rem;
 }
 
@@ -70,9 +72,10 @@ label {
   justify-content: space-around;
 }
 
-/* Common stylings among education box and experience box --------------------*/
+/* Common stylings among education, experience and skills box ----------------*/
 .education-box-wrapper,
-.experience-box-wrapper {
+.experience-box-wrapper,
+.skills-box-wrapper {
   display: grid;
   row-gap: 0.25rem;
   column-gap: 2rem;
@@ -81,24 +84,28 @@ label {
 }
 
 .education-box-wrapper:not(:only-of-type),
-.experience-box-wrapper:not(:only-of-type) {
+.experience-box-wrapper:not(:only-of-type),
+.skills-box-wrapper:not(:only-of-type) {
   border-bottom: dashed rgb(128 121 121 / 20%) 3px;
 }
 
 .education-box-wrapper:not(:only-of-type):has(input:focus),
-.experience-box-wrapper:not(:only-of-type):has(input:focus) {
+.experience-box-wrapper:not(:only-of-type):has(input:focus),
+.skills-box-wrapper:not(:only-of-type):has(input:focus) {
   background-color: #b9bbe71f;
   box-shadow: 0px 0px 10px #b9bbe750;
   border-radius: 5px;
 }
 
 .education-box-wrapper > *,
-.experience-box-wrapper > * {
+.experience-box-wrapper > *,
+.skills-box-wrapper > * {
   height: 36px;
 }
 
 .education-box-wrapper input,
-.experience-box-wrapper input {
+.experience-box-wrapper input,
+.skills-box-wrapper input {
   height: 80%;
 }
 
@@ -110,24 +117,26 @@ label {
 }
 
 .education-box-wrapper .delete-education,
-.experience-box-wrapper .delete-experience {
+.experience-box-wrapper .delete-experience,
+.skills-box-wrapper .delete-skills {
   display: flex;
   align-items: center;
   justify-content: center;
-  grid-column: 2 / 3;
   width: 20%;
   max-width: 100px;
   justify-self: end;
 }
 .education-box-wrapper:has(.delete-education:hover),
-.experience-box-wrapper:has(.delete-experience:hover) {
+.experience-box-wrapper:has(.delete-experience:hover),
+.skills-box-wrapper:has(.delete-skills:hover) {
   background-color: #b9bbe71f;
   box-shadow: 0px 0px 10px #b9bbe750;
   border-radius: 5px;
 }
 
 .add-education,
-.add-experience {
+.add-experience,
+.add-skills {
   display: block;
   margin: 0 auto;
   padding: 0.5rem;

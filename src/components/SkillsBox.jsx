@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import FormBox from './FormBox';
 import { nanoid } from 'nanoid';
+import './SkillsBox.css';
 
 export default function SkillsBox({ skillDetails, setSkillDetails }) {
   function handleChange(e, id) {

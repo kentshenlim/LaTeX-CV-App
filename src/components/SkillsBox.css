@@ -1,0 +1,8 @@
+.skills-box-wrapper {
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.skills-box-wrapper > * {
+  grid-column: 1 / 3;
+}
