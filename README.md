@@ -6,7 +6,7 @@ code.
 ## Project Overview
 
 - Project written to practice React.
-- Demo
+- [Demo](https://latex-cv-forge.netlify.app)
 - [Example PDF result](./demo/example.pdf)
 
 ## Info
