@@ -75,8 +75,12 @@ export default function Form({
         />
       </section>
       <nav className="key-btn">
-        <button type="submit" className="compute-btn" disabled={isBusy}>
-          Compile
+        <button
+          type="submit"
+          className={!isBusy ? 'compute-btn' : 'button--loading'}
+          disabled={isBusy}
+        >
+          <span>Compile</span>
         </button>
         <button type="button" disabled={isBusy}>
           Clear
