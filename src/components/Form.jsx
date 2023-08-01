@@ -44,6 +44,41 @@ export default function Form({
     setViewerAddress(url);
   }
 
+  function handleClickClear() {
+    setPersonalDetails({
+      name: '',
+      email: '',
+      gitHub: '',
+      linkedIn: '',
+    });
+    setEducationDetails([
+      {
+        id: 0,
+        institute: '',
+        period: '',
+        course: '',
+        result: '',
+        description: [['', 0]],
+      },
+    ]);
+    setExperienceDetails([
+      {
+        id: 0,
+        title: '',
+        period: '',
+        description: [['', 0]], // Array of tuples: [str, id]
+      },
+    ]);
+    setSkillsDetails([
+      {
+        id: 0,
+        category: '',
+        descriptionStr: '',
+      },
+    ]);
+    setViewerAddress('https://www.africau.edu/images/default/sample.pdf');
+  }
+
   return (
     <form className="form-wrapper" onSubmit={handleClickCompile}>
       <section className="personal-details">
@@ -82,7 +117,7 @@ export default function Form({
         >
           <span>Compile</span>
         </button>
-        <button type="button" disabled={isBusy}>
+        <button type="button" disabled={isBusy} onClick={handleClickClear}>
           Clear
         </button>
       </nav>
