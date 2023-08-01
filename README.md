@@ -6,6 +6,7 @@ code.
 ## Project Overview
 
 - Project written to practice React.
+- Does not support mobile rendering.
 - [Demo](https://latex-cv-forge.netlify.app)
 - [Example PDF result](./demo/example.pdf)
 
