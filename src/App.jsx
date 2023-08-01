@@ -40,9 +40,12 @@ function App() {
       descriptionStr: '',
     },
   ]);
+
   const [viewerAddress, setViewerAddress] = useState(
     'https://www.africau.edu/images/default/sample.pdf'
   );
+
+  const [isBusy, setIsBusy] = useState(false);
 
   return (
     <main className="app-wrapper">
@@ -67,8 +70,10 @@ function App() {
           skillsDetails={skillsDetails}
           setSkillsDetails={setSkillsDetails}
           setViewerAddress={setViewerAddress}
+          isBusy={isBusy}
+          setIsBusy={setIsBusy}
         ></Form>
-        <Viewer viewerAddress={viewerAddress} />
+        <Viewer viewerAddress={viewerAddress} setIsBusy={setIsBusy} />
       </Split>
     </main>
   );

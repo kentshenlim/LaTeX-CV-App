@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './Form.css';
 import PropTypes from 'prop-types';
 import PersonalBox from './PersonalBox';
@@ -18,11 +17,12 @@ export default function Form({
   skillsDetails, // Array of objects
   setSkillsDetails,
   setViewerAddress,
+  isBusy, // Bool
+  setIsBusy,
 }) {
-  const [isBusy, setIsBusy] = useState(false);
-
   async function handleClickCompile(e) {
     e.preventDefault();
+    setIsBusy(true);
     const inputs = document.querySelectorAll('input');
     inputs.forEach((input) => {
       input.checkValidity();
@@ -78,7 +78,9 @@ export default function Form({
         <button type="submit" className="compute-btn" disabled={isBusy}>
           Compile
         </button>
-        <button type="button">Clear</button>
+        <button type="button" disabled={isBusy}>
+          Clear
+        </button>
       </nav>
     </form>
   );
@@ -94,4 +96,6 @@ Form.propTypes = {
   skillsDetails: PropTypes.array.isRequired,
   setSkillsDetails: PropTypes.func.isRequired,
   setViewerAddress: PropTypes.func.isRequired,
+  isBusy: PropTypes.bool.isRequired,
+  setIsBusy: PropTypes.func.isRequired,
 };
