@@ -76,7 +76,7 @@ export default function Form({
         descriptionStr: '',
       },
     ]);
-    setViewerAddress('../LaTeX_CV_Forge.pdf');
+    setViewerAddress('./../LaTeX_CV_Forge.pdf');
   }
 
   return (

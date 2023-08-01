@@ -58,7 +58,7 @@ function App() {
     ];
   });
 
-  const [viewerAddress, setViewerAddress] = useState('../LaTeX_CV_Forge.pdf');
+  const [viewerAddress, setViewerAddress] = useState('./../LaTeX_CV_Forge.pdf');
 
   const [isBusy, setIsBusy] = useState(false);
 
