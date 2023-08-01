@@ -7,6 +7,7 @@ import SkillsBox from './SkillsBox';
 import texStringCreator from '../utils/texStringCreator';
 import getTexFile from '../utils/texFileCreator';
 import fetchPDF from '../utils/fetchPDF';
+import pdf from '../../LaTeX_CV_Forge.pdf';
 export default function Form({
   personalDetails, // Object
   setPersonalDetails,
@@ -76,7 +77,7 @@ export default function Form({
         descriptionStr: '',
       },
     ]);
-    setViewerAddress('./../LaTeX_CV_Forge.pdf');
+    setViewerAddress(pdf);
   }
 
   return (

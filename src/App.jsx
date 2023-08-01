@@ -4,6 +4,7 @@ import Viewer from './components/Viewer';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import './App.css';
+import pdf from '../LaTeX_CV_Forge.pdf';
 
 function App() {
   const [personalDetails, setPersonalDetails] = useState(() => {
@@ -58,7 +59,7 @@ function App() {
     ];
   });
 
-  const [viewerAddress, setViewerAddress] = useState('./../LaTeX_CV_Forge.pdf');
+  const [viewerAddress, setViewerAddress] = useState(pdf);
 
   const [isBusy, setIsBusy] = useState(false);
 
