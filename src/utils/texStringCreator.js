@@ -1,6 +1,6 @@
 function escapeString(str) {
   if (str === undefined || str === null) return str;
-  return str.replace(/[_+^${}|[\]\\]/g, '\\$&');
+  return str.replace(/[_%+^${}|[\]\\]/g, '\\$&');
 }
 
 const texStringCreator = (() => {

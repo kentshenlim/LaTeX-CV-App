@@ -59,7 +59,7 @@ function App() {
   });
 
   const [viewerAddress, setViewerAddress] = useState(
-    'https://www.africau.edu/images/default/sample.pdf'
+    '../demo/LaTeX_CV_Forge.pdf'
   );
 
   const [isBusy, setIsBusy] = useState(false);

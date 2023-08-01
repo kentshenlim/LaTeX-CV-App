@@ -76,7 +76,7 @@ export default function Form({
         descriptionStr: '',
       },
     ]);
-    setViewerAddress('https://www.africau.edu/images/default/sample.pdf');
+    setViewerAddress('../demo/LaTeX_CV_Forge.pdf');
   }
 
   return (

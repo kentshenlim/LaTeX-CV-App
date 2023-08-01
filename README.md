@@ -1,4 +1,4 @@
-# LaTeX CV App
+# LaTeX-CV-Forge
 
 Get LaTeX-compiled CV by filling out a form – without interacting with any LaTeX
 code.
@@ -7,18 +7,18 @@ code.
 
 - Project written to practice React.
 - Demo
-- Example PDF result
+- [Example PDF result](./demo/example.pdf)
 
 ## Info
 
-- How does this work?
+- How does this work?  
   Form submitted → build .tex blob and file object → upload file to
   [File.io](https://www.file.io/) and get url → compile LaTeX with the url using
   [LaTeX.Online](https://latexonline.cc/)
-- Is my data safe?
+- Is my data safe?  
   .tex file will be deleted from [file.io](https://www.file.io/about/) after
   being fetched into current app. Current app does not store any user data.
-- Compile error?
+- Compile error?  
   Avoid using backslash, `\` in the form; LaTeX sees it as command.
 
 ## Credits
