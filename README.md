@@ -3,6 +3,9 @@
 Get LaTeX-compiled CV by filling out a form – without interacting with any LaTeX
 code.
 
+> This has stopped working because of apparent certificate issue from
+> LaTeX.Online.
+
 ## Project Overview
 
 - Project written to practice React.
